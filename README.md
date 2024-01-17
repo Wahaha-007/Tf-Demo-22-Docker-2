@@ -1,6 +1,8 @@
 ## Purpose : To Setup ECS group & Run Task (Local Build)
 
-1. Full List: http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html
+1. First, we need to find the ECR Optimized ami (Docker and ECR Agent pre-installed)
+
+   Full List: http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html
 
    For ECS Optimized name https://github.com/aws/amazon-ecs-ami/releases
 
@@ -19,3 +21,15 @@
    3.4 ELB
 
 This whole system is runnable and will produce website displaying "Hello World" at ELB HTTP endpoint.
+
+4. Command usd after SSH to ECR instance
+
+   $cat /etc/ecs/ecs.config --> To see cluster name that this EC2 join
+
+   $docker ps --> To see running docker image and status
+
+   $curl localhost:3000 --> To test local website function
+
+   $tail /var/log/ecs/ecs- --> Have many log files, display only the most recent log file name
+
+   $tail /var/log/ecs/ecsagent.log.2016-10-26-16 --> Display lof file details
